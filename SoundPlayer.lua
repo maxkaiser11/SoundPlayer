@@ -66,6 +66,9 @@ local function playSoundHandler(trackId)
             local track = sounds[trackId]
 
             playTrack(track)
+        else
+            displaySoundList()
+            print(trackId .. " - Doesn't match a known Track")
         end
     else
         displaySoundList()
