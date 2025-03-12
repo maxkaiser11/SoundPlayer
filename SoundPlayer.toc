@@ -1,0 +1,7 @@
+## Interface: 11303
+## Title: SoundPlayer
+## Notes: Play sounds and music inside of the game.
+## Author: Crubz
+## Version: 0.0.1
+
+SoundPlayer.lua
