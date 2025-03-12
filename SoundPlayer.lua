@@ -31,6 +31,8 @@ local sounds = {
 SLASH_SOUND1 = "/playsound"
 SLASH_STOPSOUND1 = "/stopsound"
 
+local customSoundId
+
 local function displaySoundList()
     print("-----------------------")
     for command in pairs(sounds) do
@@ -52,6 +54,7 @@ local function playTrack(track)
         PlaySound(track.sound)
     elseif(track.type == soundType.CUSTOM)
         --play custom sound
+        customSoundId = select(2, PlaySoundFile(track.sound))
     end
 
 end
@@ -70,7 +73,12 @@ local function playSoundHandler(trackId)
 end
 
 local function stopSoundHandler()
-     
+     StopMusic()
+
+     if(customSoundId ~= nil) then
+        StopSound(customSoundId)
+        customSoundId = nil
+     end
 end
 
 SlashCmdList["SOUND"] = playSoundHandler
